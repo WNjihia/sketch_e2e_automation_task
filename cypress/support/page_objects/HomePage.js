@@ -1,6 +1,10 @@
 class HomePage{
-  getSignInOption(){
-    return cy.get('.main-nav__item--persistent > .main-nav__link');
+  visit(){
+    return cy.visit("https://www.sketch.com");
+  }
+
+  signInOption(){
+    return cy.get('.main-nav__item--persistent > .main-nav__link').click();
   }
 }
 
