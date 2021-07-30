@@ -1,8 +1,11 @@
 {
   "devDependencies": {
+    "@applitools/eyes-cypress": "^3.22.1",
     "cypress": "^8.0.0"
   },
   "scripts": {
-    "cypress:open": "cypress open"
-  }
+    "cy:open": "cypress open",
+    "cy:run": "cypress run --spec 'cypress/integration/**' --browser chrome"
+  },
+  "author": "Doris Njihia"
 }
