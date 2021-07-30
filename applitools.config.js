@@ -1,6 +1,5 @@
 module.exports = {
     batchName: 'Take Home Test',
-    apiKey: Cypress.env("APPLITOOLS_API_KEY"),
     testConcurrency: 5,
     showLogs: true
     browser: [
