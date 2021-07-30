@@ -5,6 +5,12 @@ const homePage = new HomePage();
 const loginPage = new LoginPage();
 
 describe("Login Page - Data Driven Tests", function (){
+  before(() => {
+    cy.fixture('example').then(function(data)
+    {
+        this.data=data ;
+    })
+  })
 
   beforeEach(() => {
     homePage.visit();
@@ -19,13 +25,13 @@ describe("Login Page - Data Driven Tests", function (){
   });
 
   it('throws error for empty email field', function(){
-    loginPage.fillPassword("test");
+    loginPage.fillPassword(this.data.invalid_password);
     loginPage.submit();
     loginPage.isElementTextEquals('.sc-bLdsei', "Email can’t be blank");
   });
 
   it('throws error for empty password field', function(){
-    loginPage.fillEmail("test@test.com");
+    loginPage.fillEmail(this.data.invalid_email);
     loginPage.submit();
     loginPage.isElementTextEquals('.sc-bLdsei', "Password can’t be blank");
   });
@@ -37,22 +43,22 @@ describe("Login Page - Data Driven Tests", function (){
   });
 
   it('throws error for invalid email field', function(){
-    loginPage.fillEmail("test");
+    loginPage.fillEmail(this.data.invalid_email);
     loginPage.fillPassword(Cypress.env("valid_password"));
     loginPage.submit();
     loginPage.isElementTextEquals('.sc-bLdsei', "This is not a valid email");
   });
 
   it('throws error for unverified email', function(){
-    loginPage.fillEmail("test@test.com");
-    loginPage.fillPassword("test");
+    loginPage.fillEmail(this.data.invalid_email);
+    loginPage.fillPassword(this.data.invalid_password);
     loginPage.submit();
     loginPage.isElementTextEquals('.sc-bLdsei', "You have not verified your email yet. Please check your inbox to continue.");
   });
 
   it ('throws error for wrong login credentials', function(){
     loginPage.fillEmail(Cypress.env("valid_email"));
-    loginPage.fillPassword("test");
+    loginPage.fillPassword(this.data.invalid_password);
     loginPage.submit();
     loginPage.isElementTextEquals('.sc-bLdsei', "Oops, we couldn’t sign you in. Please check your details and try again.")
   });
