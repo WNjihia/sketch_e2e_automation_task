@@ -1,4 +1,5 @@
 class Helpers{
+  const TIMEOUT_IN_MS = 12000
   isElementTextEquals(selector, text) {
     cy.get(selector).should((elem) => {
       expect(elem.text()).to.equal(text);
@@ -25,7 +26,7 @@ class Helpers{
             appName: 'Sketch',
             testName: test_name,
     })
-    cy.wait(12000);
+    cy.wait(TIMEOUT_IN_MS);
     cy.eyesCheckWindow({
             tag: "HomePage Window",
             target: 'window',
