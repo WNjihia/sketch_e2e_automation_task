@@ -14,13 +14,18 @@ Install the dependencies
 Setup Applitools eyes
 
 ```npx eyes-setup```
+Add your applitools api key to your environment variables
 
-Create a cypress.env.json and add your login credentials and applitools api key:
+```
+Mac: export APPLITOOLS_API_KEY="YOUR_API_KEY"
+Windows: set APPLITOOLS_API_KEY="YOUR_API_KEY"
+```
+
+Create a cypress.env.json and add in your login credentials:
 ```
 {
   "valid_email": <YOUR_EMAIL_ADDRESS>,
-  "valid_password": <YOUR_PASSWORD>,
-  "APPLITOOLS_API_KEY": <APPLITOOLS_API_KEY>
+  "valid_password": <YOUR_PASSWORD>
 }
 ```
 
