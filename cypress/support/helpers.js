@@ -1,5 +1,6 @@
+const TIMEOUT_IN_MS = 12000
+
 class Helpers{
-  const TIMEOUT_IN_MS = 12000
   isElementTextEquals(selector, text) {
     cy.get(selector).should((elem) => {
       expect(elem.text()).to.equal(text);
