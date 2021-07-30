@@ -1,39 +1,26 @@
-const TO_REPLACE = /[.,\/#!$%\^&\*;:{}\+=\-_`~()]/g;
+import HomePage from './HomePage.js';
 
 class LoginPage{
-  fillEmail(text){
-    return cy.get('#text-input').clear().type(text);
+  constructor(){
+    this.homePage = new HomePage();
   }
 
-  fillPassword(text){
-    return cy.get('#password-input').clear().type(text);
+  goToSignIn(){
+    this.homePage.visit();
+    this.homePage.signInOption();
   }
 
-  submit(){
-    return cy.get('button[type=submit]').click();
+  getEmailField(text){
+    return cy.get('#text-input');
   }
 
-  isElementTextEquals(selector, text) {
-    cy.get(selector).should((elem) => {
-      expect(elem.text()).to.equal(text);
-    });
+  getPasswordField(text){
+    return cy.get('#password-input');
   }
 
-  isElementTextIncludes(selector, text) {
-      // cy.get(selector).should('have.text',text)
-      cy.get(selector).should((elem) => {
-      const value = elem.text()
-      expect(value).to.include(text)
-    });
+  getSignInBtn(){
+    return cy.get('button[type=submit]');
   }
-
-  isPlaceholderEquals(selector, text) {
-    cy.get(selector).should('have.attr', 'placeholder', text);
-  }
-
-  isVisible(selector) {
-  cy.get(selector).should('be.visible');
-}
 }
 
 export default LoginPage;
