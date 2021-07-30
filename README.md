@@ -4,12 +4,15 @@ This is a suite of E2E tests in Cypress to assess the behaviour of the log in pr
 
 ## Setup
 Clone/Download the repository and navigate to that folder
+
 ```git clone https://github.com/WNjihia/sketch_e2e_automation_task.git```
 
 Install the dependencies
+
 ```npm install```
 
 Setup Applitools eyes
+
 ```npx eyes-setup```
 
 Create a cypress.env.json and add your login credentials and applitools api key:
