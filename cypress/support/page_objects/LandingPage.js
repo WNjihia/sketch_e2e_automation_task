@@ -1,4 +1,4 @@
-class HomePage{
+class LandingPage{
   visit(){
     return cy.visit("https://www.sketch.com");
   }
@@ -8,4 +8,4 @@ class HomePage{
   }
 }
 
-export default HomePage;
+export default LandingPage;
