@@ -4,13 +4,13 @@ This is a suite of E2E tests in Cypress to assess the behaviour of the log in pr
 
 ## Setup
 Clone/Download the repository and navigate to that folder
-`git clone https://github.com/WNjihia/sketch_e2e_automation_task.git`
+```git clone https://github.com/WNjihia/sketch_e2e_automation_task.git```
 
 Install the dependencies
-`npm install`
+```npm install```
 
 Setup Applitools eyes
-`npx eyes-setup`
+```npx eyes-setup```
 
 Create a cypress.env.json and add your login credentials and applitools api key:
 ```
@@ -20,6 +20,8 @@ Create a cypress.env.json and add your login credentials and applitools api key:
   "APPLITOOLS_API_KEY": <APPLITOOLS_API_KEY>
 }
 ```
+
+Instructions on how to get an applitools api key can be found [here](https://applitools.com/docs/topics/overview/obtain-api-key.html)
 
 ## Running the Tests
 To run all the tests in interactive mode, run:
