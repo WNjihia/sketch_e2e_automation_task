@@ -12,31 +12,37 @@ describe("Login Page - Data Driven Tests", function (){
     loginPage.goToSignIn();
   })
 
-  it('successfully logs user in when both username and password are entered', function(){
-    loginPage.getEmailField().clear().type(Cypress.env("valid_email"));
-    loginPage.getPasswordField().clear().type(Cypress.env("valid_password"));
-    loginPage.getSignInBtn().click();
+  it('successfully logs in user in when both username and password are entered', function(){
+    // loginPage.getEmailField().clear().type(Cypress.env("valid_email"));
+    // loginPage.getPasswordField().clear().type(Cypress.env("valid_password"));
+    // loginPage.getSignInBtn().click();
+    cy.login(Cypress.env("valid_email"), Cypress.env("valid_password"));
+    cy.wait(500);
+    helpers.snap_eyes("HomePage Window");
     helpers.isVisible('[data-testid=user-avatar]');
   });
 
   it('throws error for unverified email', function(){
-    loginPage.getEmailField().clear().type(invalid_email);
-    loginPage.getPasswordField().clear().type(invalid_password);
-    loginPage.getSignInBtn().click();
+    // loginPage.getEmailField().clear().type(invalid_email);
+    // loginPage.getPasswordField().clear().type(invalid_password);
+    // loginPage.getSignInBtn().click();
+    cy.login(invalid_email, invalid_password);
     helpers.isElementTextEquals('.sc-bLdsei', "You have not verified your email yet. Please check your inbox to continue.");
   });
 
-  it ('throws error for wrong login credentials', function(){
-    loginPage.getEmailField().clear().type(Cypress.env("valid_email"));
-    loginPage.getPasswordField().clear().type(invalid_password);
-    loginPage.getSignInBtn().click();
+  it('throws error for wrong login credentials', function(){
+    // loginPage.getEmailField().clear().type(Cypress.env("valid_email"));
+    // loginPage.getPasswordField().clear().type(invalid_password);
+    // loginPage.getSignInBtn().click();
+    cy.login(Cypress.env("valid_email"), invalid_password);
     helpers.isElementTextEquals('.sc-bLdsei', "Oops, we couldn’t sign you in. Please check your details and try again.")
   });
 
   it('throws error for invalid email field', function(){
-    loginPage.getEmailField().clear().type("test");
-    loginPage.getPasswordField().clear().type(Cypress.env("valid_password"));
-    loginPage.getSignInBtn().click();
+    // loginPage.getEmailField().clear().type("test");
+    // loginPage.getPasswordField().clear().type(Cypress.env("valid_password"));
+    // loginPage.getSignInBtn().click();
+    cy.login("test", Cypress.env("valid_password"));
     helpers.isElementTextEquals('.sc-bLdsei', "This is not a valid email");
   });
 
