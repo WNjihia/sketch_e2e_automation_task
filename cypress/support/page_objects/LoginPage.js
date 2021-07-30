@@ -1,13 +1,13 @@
-import HomePage from './HomePage.js';
+import LandingPage from './LandingPage.js';
 
 class LoginPage{
   constructor(){
-    this.homePage = new HomePage();
+    this.landingPage = new LandingPage();
   }
 
   goToSignIn(){
-    this.homePage.visit();
-    this.homePage.signInOption();
+    this.landingPage.visit();
+    this.landingPage.signInOption();
   }
 
   getEmailField(text){
