@@ -16,7 +16,7 @@ describe("Login Page - UI Elements Tests", function(){
 
   it('has input labels', function(){
     helpers.isElementTextEquals(':nth-child(1) > .sc-kTqMCK', 'Email');
-    helpers.isElementTextIncludes('.sc-kTqMCK > .sc-bqiQRQ', 'Password');
+    helpers.ElementTextIncludes('.sc-kTqMCK > .sc-bqiQRQ', 'Password');
   });
 
   it('displays input fields', function(){
@@ -25,8 +25,8 @@ describe("Login Page - UI Elements Tests", function(){
   });
 
   it('input fields have placeholders', function(){
-    helpers.isPlaceholderEquals('#text-input', 'john@appleseed.com');
-    helpers.isPlaceholderEquals('#password-input', '••••••••');
+    helpers.isPlaceholderTextEquals('#text-input', 'john@appleseed.com');
+    helpers.isPlaceholderTextEquals('#password-input', '••••••••');
   });
 
   it('has a forgot password link', function(){

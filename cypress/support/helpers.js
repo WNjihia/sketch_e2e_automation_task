@@ -5,14 +5,14 @@ class Helpers{
     });
   }
 
-  isElementTextIncludes(selector, text) {
+  ElementTextIncludes(selector, text) {
       cy.get(selector).should((elem) => {
       const value = elem.text()
       expect(value).to.include(text)
     });
   }
 
-  isPlaceholderEquals(selector, text) {
+  isPlaceholderTextEquals(selector, text) {
     cy.get(selector).should('have.attr', 'placeholder', text);
   }
 
@@ -32,7 +32,7 @@ class Helpers{
             fully: true
         });
 
-    cy.eyesClose({timeout: 12000})
+    cy.eyesClose()
   }
 }
 
