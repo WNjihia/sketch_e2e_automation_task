@@ -25,7 +25,7 @@ describe("Login Page - Data Driven Tests", function (){
 
   it('throws error for wrong login credentials', function(){
     cy.login(Cypress.env("valid_email"), invalid_password);
-    helpers.isElementTextEquals('.sc-bLdsei', "Oops, we couldn’t sign you in. Please check your details and try again.")
+    helpers.isElementTextEquals('.sc-bLdsei', "Oops, we couldn’t sign you in. Please check your details and try again.");
   });
 
   it('throws error for invalid email field', function(){

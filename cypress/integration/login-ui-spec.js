@@ -11,7 +11,7 @@ describe("Login Page - UI Elements Tests", function(){
   })
 
   it('has title', function(){
-    helpers.isElementTextEquals('.sc-bBHwJV', 'Sign in to Sketch')
+    helpers.isElementTextEquals('.sc-bBHwJV', 'Sign in to Sketch');
   });
 
   it('has input labels', function(){
@@ -30,7 +30,7 @@ describe("Login Page - UI Elements Tests", function(){
   });
 
   it('has a forgot password link', function(){
-    helpers.isElementTextEquals('.FormLabel__aside', 'Forgot your password?')
+    helpers.isElementTextEquals('.FormLabel__aside', 'Forgot your password?');
   });
 
   it('displays sign in button', function(){
