@@ -1,4 +1,4 @@
-const TIMEOUT_IN_MS = 12000
+const TIMEOUT_IN_MS = 12000;
 
 class Helpers{
   isElementTextEquals(selector, text) {
@@ -26,7 +26,7 @@ class Helpers{
     cy.eyesOpen({
             appName: 'Sketch',
             testName: test_name,
-    })
+    });
     cy.wait(TIMEOUT_IN_MS);
     cy.eyesCheckWindow({
             tag: "HomePage Window",
@@ -34,7 +34,7 @@ class Helpers{
             fully: true
         });
 
-    cy.eyesClose()
+    cy.eyesClose();
   }
 }
 
